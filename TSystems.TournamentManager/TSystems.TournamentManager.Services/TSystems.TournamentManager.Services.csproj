@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\TSystems.TournamentManager.Domain\TSystems.TournamentManager.Domain.csproj" />
+    <ProjectReference Include="..\TSystems.TournamentManager.Data\TSystems.TournamentManager.Data.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

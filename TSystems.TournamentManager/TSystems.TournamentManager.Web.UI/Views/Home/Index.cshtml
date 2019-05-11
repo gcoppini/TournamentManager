@@ -1,0 +1,61 @@
+﻿@model HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@using (Html.BeginForm("Result", "Home"))
+{
+
+<div class="row">
+   <div class="col-md-12">
+        <h2>Torneio de Luta</h2>
+
+    <input type="submit" class="btn btn-primary" value="Iniciar" />
+    <input type="button" class="btn btn-primary" value="Random 20" id="checkAll"/>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitors[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitors[0].Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitors[0].TotalFights)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Competitors[0].Wins)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Competitors) {
+        <tr>
+            <td>
+                <input type="checkbox" name="SelectedCompetitors" value="@item.Name"/>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalFights)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Wins)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Name">Edit</a> |
+            </td>
+        </tr>
+        }
+    </tbody>
+    </table>
+    </div>
+</div>
+}
