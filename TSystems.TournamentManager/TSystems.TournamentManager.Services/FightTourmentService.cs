@@ -90,7 +90,9 @@ namespace TSystems.TournamentManager.Services
             manager.ProcessMatches();
             var results = manager.GetResults();
 
-            return results;
+            return results
+                        .Where(x => x.Ranking.HasValue==true)
+                        .OrderBy(y=>y.Ranking).ToList();
         }
 
     }

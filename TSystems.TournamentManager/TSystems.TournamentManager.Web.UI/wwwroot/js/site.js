@@ -5,19 +5,20 @@
 
     $(document).ready(function () { 
         $("#checkAll").click(function(){
-            //$('input:checkbox').prop('checked', this.checked);
+            $('input:checkbox').prop('checked', false);
             
-            /*
             var must_check = 20;
             // Count checkboxes
             var checkboxes = $("input:checkbox").length;
+            console.log('antes');
             // Check random checkboxes until "must_check" limit reached
-            while ($("input:checkbox").length < must_check) {
+            while ($("input:checkbox").filter(":checked").length < must_check) {
                 // Pick random checkbox
-                var random_checkbox = Math.floor(Math.random() * checkboxes) + 1;
+                var random_checkbox = Math.floor(Math.random() * checkboxes);
                 // Check it
-                $(".checkboxes input:nth-child(" + random_checkbox + ")").prop("checked", true);
+                $("input:checkbox").eq(random_checkbox).prop("checked", true);
+                console.log('depois');
             }
-            */
+            
         })
     });
