@@ -8,11 +8,16 @@ namespace TSystems.TournamentManager.Services
 {
     public class FightTournamentService
     {
-        CompetitorRepository competitorRepository = new CompetitorRepository();
+        CompetitorRepository _competitorRepository;
+
+        public FightTournamentService()
+        {
+            _competitorRepository = new CompetitorRepository();
+        }
 
         public List<FightCompetitor> GetAllCompetitors()
         {
-            return competitorRepository.GetAll();
+            return _competitorRepository.GetAll();
         }
 
         public List<FightCompetitor> Run(List<string> selected)

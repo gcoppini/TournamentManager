@@ -2,21 +2,22 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TSystems.TournamentManager.Domain;
 
-namespace TSystems.TournamentManager.Domain
+namespace TSystems.TournamentManager.Services
 {
     public class TournamentService
     {
-        private ITournament Tournament;
-        public TournamentService(ITournament _Tournament)
+        private ITournament _tournament;
+        public TournamentService(ITournament tournament)
         {
-            Tournament = _Tournament;
+            _tournament = tournament;
         }
  
         //Tournament orchestration
         public void ProcessMatches()
         {
-            switch (Tournament.TournamentType)
+            switch (_tournament.TournamentType)
             {
                 case enumTournamentType.MultiStage:
                     Console.Write("Multi-Stage Tournament identified\n");
@@ -31,10 +32,10 @@ namespace TSystems.TournamentManager.Domain
 
         private void ProcessMultiStage()
         {
-            var stages = ((MultiStageTournament)Tournament).Stages;
-            var groups = ((MultiStageTournament)Tournament).Groups;
-            var competitors = ((MultiStageTournament)Tournament).Competitors;
-            var matchesHistory = ((MultiStageTournament)Tournament).Matches;
+            var stages = ((MultiStageTournament)_tournament).Stages;
+            var groups = ((MultiStageTournament)_tournament).Groups;
+            var competitors = ((MultiStageTournament)_tournament).Competitors;
+            var matchesHistory = ((MultiStageTournament)_tournament).Matches;
 
             foreach(IStageTournament stage in stages)
             {
@@ -80,7 +81,7 @@ namespace TSystems.TournamentManager.Domain
 
         private void ComputePoints(FightStageTournament stage, List<IFightMatch> matches)
         {
-            var competitors = ((MultiStageTournament)Tournament).Competitors;
+            var competitors = ((MultiStageTournament)_tournament).Competitors;
             
 
 
@@ -120,7 +121,7 @@ namespace TSystems.TournamentManager.Domain
 
         public List<FightCompetitor> GetResults()
         {
-            var competitors = (((MultiStageTournament)Tournament).Competitors);
+            var competitors = (((MultiStageTournament)_tournament).Competitors);
             var co  = competitors
                         .Cast<FightCompetitor>()
                         .OrderByDescending(x=>x.Ranking)
