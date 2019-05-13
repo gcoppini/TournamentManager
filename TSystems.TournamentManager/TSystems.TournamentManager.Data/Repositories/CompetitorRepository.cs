@@ -10,8 +10,9 @@ using TSystems.TournamentManager.Data.Models;
 
 namespace TSystems.TournamentManager.Data.Repository
 {
-    public class CompetitorRepository
+    public class CompetitorRepository : BaseRepository<FightCompetitor>
     {
+
         private readonly HttpClient client = new HttpClient();
 
         public List<FightCompetitor> GetAll()
