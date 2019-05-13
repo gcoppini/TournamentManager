@@ -97,6 +97,7 @@ namespace TSystems.TournamentManager.Tests
         }
 
 
+        [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "A lista participantes deve conter elementos distintos")]
         public void SameCompetitorMultipleTimesNotAllowed()
         {
