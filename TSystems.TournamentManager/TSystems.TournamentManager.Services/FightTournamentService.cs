@@ -25,6 +25,8 @@ namespace TSystems.TournamentManager.Services
 
             List<FightCompetitor> comp = GetAllCompetitors();
             
+
+            //Neste query a seleção dos competitores valida também a multiplicidade - participantes distintos
             var competitors = (from r in comp
                          where (from p in selected select p).Contains(r.Name)
                          select r).ToList();
@@ -97,7 +99,7 @@ namespace TSystems.TournamentManager.Services
 
             return results
                         .Where(x => x.Ranking.HasValue==true)
-                        .OrderBy(y=>y.Ranking).ToList();
+                        .OrderBy(y => y.Ranking).ToList();
         }
 
     }
