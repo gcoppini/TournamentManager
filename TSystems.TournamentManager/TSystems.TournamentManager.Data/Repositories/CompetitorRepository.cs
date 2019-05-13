@@ -47,7 +47,7 @@ namespace TSystems.TournamentManager.Data.Repository
         }
 
 
-        //DTO Pattern - Mapping 
+        //DTO Pattern - Mapping | + ou - :o)
         private List<FightCompetitor> Map(List<FightCompetitorDataModel> list)
         {
             var competitors = new List<FightCompetitor>();

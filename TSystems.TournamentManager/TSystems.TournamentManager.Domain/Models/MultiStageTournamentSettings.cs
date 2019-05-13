@@ -12,7 +12,5 @@ namespace TSystems.TournamentManager.Domain
         public const int MIN_GROUP_QTY = 4;
         public const int MIN_GROUP_COMPETITOR_QTY = 5;
 
-
-
     }
 }

@@ -11,7 +11,6 @@ namespace TSystems.TournamentManager.Domain
     {
         public string Name { get; set; }
         public int Age { get; set; }
-        
         public List<string> MartialArts { get; set; }
        
         public int Wins { get; set; }
@@ -64,7 +63,4 @@ namespace TSystems.TournamentManager.Domain
         }
 
     }
-
-
-
 }

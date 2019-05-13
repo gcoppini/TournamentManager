@@ -14,6 +14,8 @@ namespace TSystems.TournamentManager.Domain
 
     public class AllversusAllCriteria : FightStageCriteria, IStageCriteria
     {
+
+        private const int CONST_MATCH_COMPETITOR_QTY = 2;
         public override List<IFightMatch> Apply(List<ICompetitor> list)
         {
             var retorno = new List<IFightMatch>();
@@ -38,7 +40,7 @@ namespace TSystems.TournamentManager.Domain
         }
         private List<IFightMatch> GetMatches(List<ICompetitor> list)
         {
-            var result = GetPermutations(list, 2);
+            var result = GetPermutations(list, CONST_MATCH_COMPETITOR_QTY);
             var retorno = new List<IFightMatch>();
             foreach (var perm in result)
             {
@@ -49,7 +51,7 @@ namespace TSystems.TournamentManager.Domain
             return retorno;
         }
 
-        static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> items, int count)
+        private static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> items, int count)
         {
             int i = 0;
             foreach (var item in items)
@@ -74,6 +76,7 @@ namespace TSystems.TournamentManager.Domain
         {
             var result = new List<IFightMatch>();
 
+            //hard-coded for demonstration purposes
             var groupA = competitors.Cast<FightCompetitor>().Where(x => x.Group.Code=="A").OrderByDescending(x => x.Points).ToList();
             var groupB = competitors.Cast<FightCompetitor>().Where(x => x.Group.Code=="B").OrderByDescending(x => x.Points).ToList();
             var groupC = competitors.Cast<FightCompetitor>().Where(x => x.Group.Code=="C").OrderByDescending(x => x.Points).ToList();
@@ -103,7 +106,7 @@ namespace TSystems.TournamentManager.Domain
 
     public class FirstVerusFirst : FightStageCriteria, IStageCriteria
     {
-         public override List<IFightMatch> Apply(List<ICompetitor> competitors)
+        public override List<IFightMatch> Apply(List<ICompetitor> competitors)
         {
             var result = new List<IFightMatch>();
             var  co =  competitors.Cast<FightCompetitor>().OrderByDescending(x => x.Points).ToList();

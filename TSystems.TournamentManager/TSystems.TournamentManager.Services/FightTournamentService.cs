@@ -22,17 +22,19 @@ namespace TSystems.TournamentManager.Services
 
         public List<FightCompetitor> Run(List<string> selected)
         {
+            const int TOURMENAMENT_COMPETITOR_QTY = 20;
+            const int TOURMENAMENT_GROUP_QTY = 5;
 
             List<FightCompetitor> comp = GetAllCompetitors();
-            
 
-            //Neste query a seleção dos competitores valida também a multiplicidade - participantes distintos
+            //Neste query a seleção dos competitores valida também a multiplicidade 
+            // Participantes distintos somente
             var competitors = (from r in comp
                          where (from p in selected select p).Contains(r.Name)
                          select r).ToList();
 
-            if(competitors.Count != 20)
-                throw new InvalidOperationException("Necessário selecionar 20 participantes");
+            if(competitors.Count != TOURMENAMENT_COMPETITOR_QTY)
+                throw new InvalidOperationException($"Necessário selecionar {TOURMENAMENT_COMPETITOR_QTY} participantes");
 
              //Grupos
             var groups = new List<IGroupTournament>();
@@ -46,18 +48,16 @@ namespace TSystems.TournamentManager.Services
             groups.Add(grupoC);
             groups.Add(grupoD);
 
-            
-
             //Divisão em grupos conforme idade
             int i = 0;
             int j = 0;
             foreach(var c in competitors.OrderBy(x=> x.Age))
             {
-                if(i>=20) {
+                if(i>=TOURMENAMENT_COMPETITOR_QTY) {
                     competitors.Remove(c);
                     continue;
                 }
-                j = (int)i/5;
+                j = (int)i/TOURMENAMENT_GROUP_QTY;
                 ((FightCompetitor)c).Group = groups.ElementAt(j);
                 i++;
             }

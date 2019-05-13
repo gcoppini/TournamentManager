@@ -18,10 +18,13 @@ namespace TSystems.TournamentManager.Domain
          
         public List<ICompetitor> Ranking { get; set; }
 
+        public MultiStageTournamentSettings Settings { get; set;}
+
         public MultiStageTournament()
         {
             TournamentType = enumTournamentType.MultiStage;
             Matches = new List<IFightMatch>();
+            Settings = new MultiStageTournamentSettings();
         }
 
     }

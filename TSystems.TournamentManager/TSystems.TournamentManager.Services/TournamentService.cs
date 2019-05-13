@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TSystems.TournamentManager.Domain;
+using System.Diagnostics;
 
 namespace TSystems.TournamentManager.Services
 {
+    //Tournament orchestration
     public class TournamentService
     {
         private ITournament _tournament;
@@ -14,7 +16,7 @@ namespace TSystems.TournamentManager.Services
             _tournament = tournament;
         }
  
-        //Tournament orchestration
+        
         public void ProcessMatches()
         {
             switch (_tournament.TournamentType)
@@ -30,6 +32,22 @@ namespace TSystems.TournamentManager.Services
             }
         }
 
+        public List<FightCompetitor> GetResults()
+        {
+            var competitors = (((MultiStageTournament)_tournament).Competitors);
+            var co  = competitors
+                        .Cast<FightCompetitor>()
+                        .OrderByDescending(x=>x.Ranking)
+                        .ToList();
+                        //.OrderByDescending(x=>x.Points);
+                        
+            foreach (var item in co)
+            {
+                Console.WriteLine(item.Ranking +" | "+ item.Points +" | " + item.ToString());
+            }
+            return co;
+        }
+
         private void ProcessMultiStage()
         {
             var stages = ((MultiStageTournament)_tournament).Stages;
@@ -39,7 +57,7 @@ namespace TSystems.TournamentManager.Services
 
             foreach(IStageTournament stage in stages)
             {
-                Console.Write("*** Processing stage: "+stage.Name+" ****\n");
+                Debug.Print("*** Processing stage: "+stage.Name+" ****\n");
 
                 var TournamentStage = (FightStageTournament)stage;
                 var stageCriterias = ((FightStageTournament)stage).StageCriteria;
@@ -61,8 +79,7 @@ namespace TSystems.TournamentManager.Services
             }
             //ShowResults();
         }
-
-        //Gero as partidas com critério da fase
+        
         private List<IFightMatch> GenerateMatches(List<ICompetitor> competitors, IStageCriteria criteria)
         {
             var matchbuilder = new FightMatchBuilder();
@@ -82,22 +99,17 @@ namespace TSystems.TournamentManager.Services
         private void ComputePoints(FightStageTournament stage, List<IFightMatch> matches)
         {
             var competitors = ((MultiStageTournament)_tournament).Competitors;
-            
-
-
+    
             int i = 1;
             foreach(FightMatch currentMatch in matches)
             {
-
                 var winner = competitors.Cast<FightCompetitor>()
                                         .Where(x=>x.Name==currentMatch.Winner.Name)
                                         .First();
 
-
                 var loser = competitors.Cast<FightCompetitor>()
                                         .Where(x=>x.Name==currentMatch.Loser.Name)
                                         .First();
-                
                 
 
                 winner.AddWin();
@@ -110,29 +122,7 @@ namespace TSystems.TournamentManager.Services
                    winner.Ranking = i++;
                    loser.Ranking = i++;
                 }
-
-            
-
             }
-
-            
-
-        }
-
-        public List<FightCompetitor> GetResults()
-        {
-            var competitors = (((MultiStageTournament)_tournament).Competitors);
-            var co  = competitors
-                        .Cast<FightCompetitor>()
-                        .OrderByDescending(x=>x.Ranking)
-                        .ToList();
-                        //.OrderByDescending(x=>x.Points);
-                        
-            foreach (var item in co)
-            {
-                Console.WriteLine(item.Ranking +" | "+ item.Points +" | " + item.ToString());
-            }
-            return co;
         }
         
         private void ShowMatchs(List<IFightMatch> matches)
@@ -144,7 +134,7 @@ namespace TSystems.TournamentManager.Services
             foreach (var item in co)
             {
                 if(item.Winner != null && item.Loser!=null)
-                    Console.WriteLine(((FightCompetitor)item.Winner).Group.Name +  " - Winner: "+ item.Winner.ToString() +" | " +((FightCompetitor)item.Loser).Group.Name + " Looser:" + item.Loser.ToString());
+                    Debug.Print(((FightCompetitor)item.Winner).Group.Name +  " - Winner: "+ item.Winner.ToString() +" | " +((FightCompetitor)item.Loser).Group.Name + " Looser:" + item.Loser.ToString());
             }
         }
     }

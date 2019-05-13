@@ -12,14 +12,9 @@ namespace TSystems.TournamentManager.Domain
 
         public List<IMatchCriteria> MatchCriteria { get; set; }
 
-
         public bool isRanking { get; set; }
 
         public int rankingWinFactor { get; set; }
         public int rankingLoseFactor { get; set; }
-
-        
-        
-
     }
 }
