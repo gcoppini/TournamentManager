@@ -7,42 +7,42 @@ namespace TSystems
 {
     public class TournamentManager
     {
-        private ITournament tourment;
-        public TournamentManager(ITournament _tourment)
+        private ITournament Tournament;
+        public TournamentManager(ITournament _Tournament)
         {
-            tourment = _tourment;
+            Tournament = _Tournament;
         }
  
-        //Tourment orchestration
+        //Tournament orchestration
         public void ProcessMatches()
         {
-            switch (tourment.TourmentType)
+            switch (Tournament.TournamentType)
             {
-                case enumTourmentType.MultiStage:
-                    Console.Write("Multi-Stage tourment identified\n");
+                case enumTournamentType.MultiStage:
+                    Console.Write("Multi-Stage Tournament identified\n");
                     ProcessMultiStage();
                 break;
 
                 default:
-                    Console.Write("Ooops wrong tourment type");
+                    Console.Write("Ooops wrong Tournament type");
                 break;
             }
         }
 
         private void ProcessMultiStage()
         {
-            var stages = ((MultiStageTourment)tourment).Stages;
-            var groups = ((MultiStageTourment)tourment).Groups;
-            var competitors = ((MultiStageTourment)tourment).Competitors;
-            var matchesHistory = ((MultiStageTourment)tourment).Matches;
+            var stages = ((MultiStageTournament)Tournament).Stages;
+            var groups = ((MultiStageTournament)Tournament).Groups;
+            var competitors = ((MultiStageTournament)Tournament).Competitors;
+            var matchesHistory = ((MultiStageTournament)Tournament).Matches;
 
-            foreach(IStageTourment stage in stages)
+            foreach(IStageTournament stage in stages)
             {
                 Console.Write("*** Processing stage: "+stage.Name+" ****\n");
 
-                var tourmentStage = (FightStageTourment)stage;
-                var stageCriterias = ((FightStageTourment)stage).StageCriteria;
-                var matchCriterias = ((FightStageTourment)stage).MatchCriteria;
+                var TournamentStage = (FightStageTournament)stage;
+                var stageCriterias = ((FightStageTournament)stage).StageCriteria;
+                var matchCriterias = ((FightStageTournament)stage).MatchCriteria;
 
                 if(stageCriterias==null)
                     continue;
@@ -51,7 +51,7 @@ namespace TSystems
                 {
                     var stageMatches = GenerateMatches(competitors, stageCriteria);
                     EvaluateMatches(stageMatches, matchCriterias);
-                    ComputePoints(tourmentStage, stageMatches);
+                    ComputePoints(TournamentStage, stageMatches);
                     ShowMatchs(stageMatches);
 
                     matchesHistory.AddRange(stageMatches);
@@ -78,9 +78,9 @@ namespace TSystems
             var matchResults = matchEvaluate.EvaluateMatches(matches);
         }
 
-        private void ComputePoints(FightStageTourment stage, List<IFightMatch> matches)
+        private void ComputePoints(FightStageTournament stage, List<IFightMatch> matches)
         {
-            var competitors = ((MultiStageTourment)tourment).Competitors;
+            var competitors = ((MultiStageTournament)Tournament).Competitors;
             
 
 
@@ -120,7 +120,7 @@ namespace TSystems
 
         private void ShowResults()
         {
-            var competitors = (((MultiStageTourment)tourment).Competitors);
+            var competitors = (((MultiStageTournament)Tournament).Competitors);
             var co  = competitors
                         .Cast<FightCompetitor>()
                         .OrderByDescending(x=>x.Ranking);

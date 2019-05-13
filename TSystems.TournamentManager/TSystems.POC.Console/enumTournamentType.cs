@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace TSystems.TournamentManager.Domain
+namespace TSystems
 {
-        public enum enumTourmentType
+        public enum enumTournamentType
         {
             MultiStage = 0,
             PromotionRelegation = 1,

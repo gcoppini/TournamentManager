@@ -16,12 +16,12 @@ namespace TSystems.TournamentManager.Web.UI.Controllers
 {
     public class HomeController : Controller
     {
-        private FightTourmentService fightTourmentService = new FightTourmentService();
+        private FightTournamentService fightTournamentService = new FightTournamentService();
 
         public IActionResult Index()
         {
             HomeViewModel viewModel = new HomeViewModel();
-            viewModel.Competitors = fightTourmentService.GetAllCompetitors();
+            viewModel.Competitors = fightTournamentService.GetAllCompetitors();
             return View(viewModel);
         }
 
@@ -53,7 +53,7 @@ namespace TSystems.TournamentManager.Web.UI.Controllers
         public IActionResult Result(HomeViewModel model)
         {
             ResultViewModel viewModel = new ResultViewModel();
-            var result = fightTourmentService.Run(model.SelectedCompetitors); 
+            var result = fightTournamentService.Run(model.SelectedCompetitors); 
             viewModel.Competitors = result;
             return View(viewModel);
         }

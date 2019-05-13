@@ -2,7 +2,7 @@ using System;
 
 namespace TSystems
 {
-    public interface IStageTourment    {
+    public interface IStageTournament    {
         string Name { get; set; }
 
     }

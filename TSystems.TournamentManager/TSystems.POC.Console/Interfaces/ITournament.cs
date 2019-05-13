@@ -4,6 +4,6 @@ namespace TSystems
 {
     public interface ITournament
     {
-        enumTourmentType TourmentType {get; set;}
+        enumTournamentType TournamentType {get; set;}
     }
 }

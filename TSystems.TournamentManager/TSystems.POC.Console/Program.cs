@@ -89,15 +89,15 @@ namespace TSystems
             matchCriteria.Add(new WinPercentageCriteria(){ Order=1});
 
             //Fases do campeonato
-            var stages = new List<IStageTourment>();
-            stages.Add(new FightStageTourment(){Name="Inicio"});
-            stages.Add(new FightStageTourment(){Name="Grupos", StageCriteria=stageGroupCriterias,MatchCriteria=matchCriteria });
-            stages.Add(new FightStageTourment(){Name="Quartas de final",StageCriteria=stage4thsCriterias,MatchCriteria=matchCriteria });
-            stages.Add(new FightStageTourment(){Name="Semifinal",StageCriteria=stage2thsCriterias,MatchCriteria=matchCriteria});
-            stages.Add(new FightStageTourment(){Name="Final",StageCriteria=stage2thsCriterias,MatchCriteria=matchCriteria,isRanking=true, rankingWinFactor=3,rankingLoseFactor=0});
+            var stages = new List<IStageTournament>();
+            stages.Add(new FightStageTournament(){Name="Inicio"});
+            stages.Add(new FightStageTournament(){Name="Grupos", StageCriteria=stageGroupCriterias,MatchCriteria=matchCriteria });
+            stages.Add(new FightStageTournament(){Name="Quartas de final",StageCriteria=stage4thsCriterias,MatchCriteria=matchCriteria });
+            stages.Add(new FightStageTournament(){Name="Semifinal",StageCriteria=stage2thsCriterias,MatchCriteria=matchCriteria});
+            stages.Add(new FightStageTournament(){Name="Final",StageCriteria=stage2thsCriterias,MatchCriteria=matchCriteria,isRanking=true, rankingWinFactor=3,rankingLoseFactor=0});
 
             //Torneio
-            var tournament = new MultiStageTourment();
+            var tournament = new MultiStageTournament();
             tournament.Groups = groups;
             tournament.Stages = stages;
             tournament.Competitors = competitors;

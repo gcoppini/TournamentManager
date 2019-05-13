@@ -8,13 +8,13 @@ using TSystems.TournamentManager.Services;
 namespace TSystems.TournamentManager.Tests
 {
     [TestClass]
-    public class TourmentServiceTest
+    public class TournamentServiceTest
     {
-        private FightTourmentService _fightTourmentService;
+        private FightTournamentService _fightTournamentService;
         
-        public TourmentServiceTest()
+        public TournamentServiceTest()
         {
-             _fightTourmentService = new FightTourmentService();
+             _fightTournamentService = new FightTournamentService();
         }
 
         [TestMethod]
@@ -29,7 +29,7 @@ namespace TSystems.TournamentManager.Tests
         public void EmptyCompetitorListNotAllowed()
         {
             var selected = new List<string>();
-            var result = _fightTourmentService.Run(selected);
+            var result = _fightTournamentService.Run(selected);
         }
 
         [DataTestMethod]
@@ -40,7 +40,7 @@ namespace TSystems.TournamentManager.Tests
         public void ReturnExceptionWhenCompetitorQtyDifferent20(int value)
         {
             var selected = new List<string>();
-            var result = _fightTourmentService.Run(selected);
+            var result = _fightTournamentService.Run(selected);
             for(var i=0;i<value;i++)
             {
                 selected.Add((new Random().Next()*10000).ToString());

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace TSystems.TournamentManager.Domain
 {
-    public class FightStageTourment : IStageTourment
+    public class FightStageTournament : IStageTournament
     {
         public string Name { get; set; }
 

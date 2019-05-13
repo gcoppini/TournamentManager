@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace TSystems.TournamentManager.Domain
 {
-    public class MultiStageTourment : ITournament
+    public class MultiStageTournament : ITournament
     {
-        public enumTourmentType TourmentType { get; set; }
+        public enumTournamentType TournamentType { get; set; }
 
         public List<IGroupTournament> Groups { get; set; }
 
-        public List<IStageTourment> Stages { get; set; }
+        public List<IStageTournament> Stages { get; set; }
 
         public List<ICompetitor> Competitors { get; set; }
 
@@ -18,9 +18,9 @@ namespace TSystems.TournamentManager.Domain
          
         public List<ICompetitor> Ranking { get; set; }
 
-        public MultiStageTourment()
+        public MultiStageTournament()
         {
-            TourmentType = enumTourmentType.MultiStage;
+            TournamentType = enumTournamentType.MultiStage;
             Matches = new List<IFightMatch>();
         }
 

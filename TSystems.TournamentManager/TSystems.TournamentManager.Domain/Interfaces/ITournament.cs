@@ -4,6 +4,6 @@ namespace TSystems.TournamentManager.Domain
 {
     public interface ITournament
     {
-        enumTourmentType TourmentType {get; set;}
+        enumTournamentType TournamentType {get; set;}
     }
 }
