@@ -25,20 +25,34 @@ namespace TSystems.TournamentManager.Web.UI.Controllers
             return View(viewModel);
         }
 
+        public IActionResult Result(HomeViewModel model)
+        {
+            ResultViewModel viewModel = new ResultViewModel();
+
+            if (model.SelectedCompetitors == null || model.SelectedCompetitors.Count != 20)
+            {
+                ModelState.AddModelError("SelectedCompetitors", "Por favor selecione 20 participantes.");
+                return View(viewModel);
+            }
+
+            
+            var result = fightTournamentService.Run(model.SelectedCompetitors); 
+            viewModel.Competitors = result;
+            return View(viewModel);
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
 
             return View();
         }
-
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
 
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();
@@ -48,14 +62,6 @@ namespace TSystems.TournamentManager.Web.UI.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult Result(HomeViewModel model)
-        {
-            ResultViewModel viewModel = new ResultViewModel();
-            var result = fightTournamentService.Run(model.SelectedCompetitors); 
-            viewModel.Competitors = result;
-            return View(viewModel);
         }
 
     }

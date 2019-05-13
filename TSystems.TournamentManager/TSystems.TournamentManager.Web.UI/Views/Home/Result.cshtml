@@ -3,9 +3,16 @@
 @{
     ViewData["Title"] = "Resultado";
 }
-
 <div class="row">
    <div class="col-md-12">
+    @if (!ViewData.ModelState.IsValid) {
+        <br/>
+       <div class="alert alert-danger" role="alert">
+            @Html.ValidationMessage("SelectedCompetitors")
+        </div>
+    }
+    @if(Model.Competitors != null){
+        @if(Model.Competitors.Count > 0){
         <h2>Resultado</h2>
         <table class="table">
         <thead>
@@ -19,18 +26,20 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.Competitors) 
-            {
-            <tr>
-                <td>
-                    <span class="glyphicon glyphicon-asterisk">@Html.DisplayFor(modelItem => item.Ranking)</span>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-            </tr>
-            }
+                    @foreach (var item in Model.Competitors) 
+                    {
+                    <tr>
+                        <td>
+                            <span class="glyphicon glyphicon-asterisk">@Html.DisplayFor(modelItem => item.Ranking)</span>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                    </tr>
+                    }
         </tbody>
         </table>
+        }
+    }
     </div>
 </div>

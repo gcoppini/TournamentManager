@@ -7,16 +7,15 @@
 @using (Html.BeginForm("Result", "Home"))
 {
 
+<h2>Torneio de Luta</h2>
+
 <div class="row">
-   <div class="col-md-12">
+   <div class="col-md-3">
         <input type="submit" class="btn btn-primary" value="Iniciar" />
         <input type="button" class="btn btn-primary" value="Random 20" id="checkAll"/>
     </div>
 </div>
-
-
-<h2>Torneio de Luta</h2>
-    
+<br/>    
         <div class="row">
         @foreach (var item in Model.Competitors) 
         {
@@ -41,8 +40,8 @@
                                 </div>
                             </div>
                             <p class="checkbox">
-                                <label style="font-size: 2.5em">
-                                    <input type="checkbox" name="SelectedCompetitors" value="@item.Name" class="form-control"/>
+                                <label style="font-size: 2.5em;border: none">
+                                    <input type="checkbox" name="SelectedCompetitors" value="@item.Name" class="form-control" /> 
                                 </label>
                             </p>
 
