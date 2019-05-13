@@ -21,11 +21,11 @@ namespace TSystems
                 var competitor = (FightCompetitor)fightMatch.Competitors.ElementAt(0);
                 var otherCompetitor = (FightCompetitor)fightMatch.Competitors.ElementAt(1);
 
-                var isDraw = competitor.WinPercentagem == otherCompetitor.WinPercentagem;
+                var isDraw = competitor.WinPercentage == otherCompetitor.WinPercentage;
                 
                 if(!isDraw)
                 {
-                    if(competitor.WinPercentagem > otherCompetitor.WinPercentagem)
+                    if(competitor.WinPercentage > otherCompetitor.WinPercentage)
                     {
                         fightMatch.Winner = competitor;
                         fightMatch.Loser = otherCompetitor;

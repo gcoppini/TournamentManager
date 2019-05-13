@@ -22,7 +22,7 @@ namespace TSystems.TournamentManager.Domain
 
         public int? Ranking { get; set; }
 
-        public int WinPercentagem { 
+        public int WinPercentage { 
             get
             {
                  var p = ((double)Wins / (double)TotalFights) * 100;
@@ -60,7 +60,7 @@ namespace TSystems.TournamentManager.Domain
         public override string ToString()
         {
             // String representation.
-            return this.Name + " - " + this.WinPercentagem + " - "+this.MartialArts.Count+" - " + this.TotalFights;
+            return this.Name + " - " + this.WinPercentage + " - "+this.MartialArts.Count+" - " + this.TotalFights;
         }
 
     }

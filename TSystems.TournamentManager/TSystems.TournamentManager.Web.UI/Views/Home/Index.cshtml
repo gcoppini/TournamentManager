@@ -30,13 +30,13 @@
                             <span class="label label-success">@Html.DisplayNameFor(model => model.Competitors[0].Wins) @Html.DisplayFor(modelItem => item.Wins)</span>
                             <span class="label label-info">@Html.DisplayNameFor(model => model.Competitors[0].Losses) @Html.DisplayFor(modelItem => item.Losses)</span>
                             <span class="label label-warning">@Html.DisplayNameFor(model => model.Competitors[0].MartialArts) @Html.DisplayFor(modelItem => item.MartialArts.Count)</span>
-                            <span class="label label-danger">@Html.DisplayNameFor(model => model.Competitors[0].WinPercentagem) @Html.DisplayFor(modelItem => item.WinPercentagem)%</span>
+                            <span class="label label-danger">@Html.DisplayNameFor(model => model.Competitors[0].WinPercentage) @Html.DisplayFor(modelItem => item.WinPercentage)%</span>
                         </p>
 
                         <p>
                             <div class="progress">
-                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="@Html.DisplayFor(modelItem => item.WinPercentagem)" aria-valuemin="0" aria-valuemax="100" style="width: @Html.DisplayFor(modelItem => item.WinPercentagem)%;">
-                                @Html.DisplayFor(modelItem => item.WinPercentagem)%
+                                <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="@Html.DisplayFor(modelItem => item.WinPercentage)" aria-valuemin="0" aria-valuemax="100" style="width: @Html.DisplayFor(modelItem => item.WinPercentage)%;">
+                                @Html.DisplayFor(modelItem => item.WinPercentage)%
                                 </div>
                             </div>
                             <p class="checkbox">
