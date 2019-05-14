@@ -1,4 +1,4 @@
-# .NET Core - Tourment Manager - Torneio de Luta
+# .NET Core - Tournament Manager - Torneio de Luta
 Arquitetura teste para avaliação 
 
 ## Para executar a solução
@@ -35,7 +35,7 @@ Versão: Commit de 1.33.1: 51b0b28134d51361cf996d2f0a1c698247aeabd8 Data: 2019-0
 https://en.wikipedia.org/wiki/Tournament
 
 
-##WIP - Work in progress
+## WIP - Work in progress
 Padrões
 - DDD - Domain Drive Design 
 - DTO, Injeção de dependência, Repository Pattern, SOLID, CQS
@@ -45,4 +45,4 @@ Padrões
 - Análise Thread-safe, Async, IDisposable, Logs, Complexidade ciclomática
 
 Testes
-- Mocked Unit Tests, Testes de integração, carga, user interfaces
+- Mocked Unit Tests, Testes de integração, carga, user interfaces, test coverage
