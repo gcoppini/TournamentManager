@@ -1,11 +1,11 @@
 # .NET Core - Tournament Manager - Torneio de Luta
 Arquitetura teste para avaliação
 
-[[https://github.com/gcoppini/TournamentManager/blob/master/screen_inicio.png|alt=Tela incial]]
 
 
-[[https://github.com/gcoppini/TournamentManager/blob/master/screen_result.png|alt=Tela Resultados]]
+![Tela incial](https://github.com/gcoppini/TournamentManager/blob/master/screen_inicio.png)
 
+![Tela Resultados](https://github.com/gcoppini/TournamentManager/blob/master/screen_result.png)
 
 ## Para executar a solução
 ## Via shell
