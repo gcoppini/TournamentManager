@@ -1,0 +1,15 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Gabriel Coppini -- Software Developer -- @coppinigabriel
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    MVC, C#
+    Twitter-Bootstrap

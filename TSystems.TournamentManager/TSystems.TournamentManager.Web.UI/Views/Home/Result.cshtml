@@ -3,43 +3,42 @@
 @{
     ViewData["Title"] = "Resultado";
 }
-<div class="row">
-   <div class="col-md-12">
-    @if (!ViewData.ModelState.IsValid) {
-        <br/>
-       <div class="alert alert-danger" role="alert">
-            @Html.ValidationMessage("SelectedCompetitors")
+
+<h2>Resultado</h2>
+
+@if (!ViewData.ModelState.IsValid) 
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                @Html.ValidationMessage("SelectedCompetitors")
+            </div>
         </div>
-    }
-    @if(Model.Competitors != null){
-        @if(Model.Competitors.Count > 0){
-        <h2>Resultado</h2>
-        <table class="table">
-        <thead>
-            <tr>
-                <th>
-                     @Html.DisplayNameFor(model => model.Competitors[0].Ranking)
-                </th>
-                <th>
-                     @Html.DisplayNameFor(model => model.Competitors[0].Name)
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-                    @foreach (var item in Model.Competitors) 
-                    {
-                    <tr>
-                        <td>
-                            <span class="glyphicon glyphicon-asterisk">@Html.DisplayFor(modelItem => item.Ranking)</span>
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                    </tr>
-                    }
-        </tbody>
-        </table>
-        }
-    }
     </div>
-</div>
+}
+
+@if(Model.Competitors != null)
+{
+    @if(Model.Competitors.Count > 0)
+    {
+    <div class="row">
+        @foreach (var item in Model.Competitors) 
+        {
+            <div class="col-md-3">
+                <div class="thumbnail">
+                    <img src="https://api.adorable.io/avatars/200/@item.Name&#64;adorable.png" class="card-img-top" alt="@item.Name">
+                    <div class="caption text-center">
+                        <span class="fa-stack fa-3x">
+                            <i class="fa fa-circle-o fa-stack-2x"></i>
+                            <strong class="fa-stack-1x">@Html.DisplayFor(modelItem => item.Ranking)</strong>
+                        </span>
+                        <p>
+                            <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    }
+}
