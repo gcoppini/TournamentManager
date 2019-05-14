@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TSystems.TournamentManager.Domain;
 using System.Diagnostics;
+using System.Diagnostics;
 
 namespace TSystems.TournamentManager.Services
 {
@@ -15,20 +16,19 @@ namespace TSystems.TournamentManager.Services
         {
             _tournament = tournament;
         }
- 
-        
+
         public void ProcessMatches()
         {
             switch (_tournament.TournamentType)
             {
                 case enumTournamentType.MultiStage:
-                    Console.Write("Multi-Stage Tournament identified\n");
+                    Debug.Print("Multi-Stage Tournament identified\n");
                     ProcessMultiStage();
                 break;
 
                 default:
-                    Console.Write("Ooops wrong Tournament type");
-                break;
+                    Debug.Print("Ooops wrong Tournament type");
+                    throw new InvalidOperationException("Invalid tournament type");
             }
         }
 
@@ -43,7 +43,7 @@ namespace TSystems.TournamentManager.Services
                         
             foreach (var item in co)
             {
-                Console.WriteLine(item.Ranking +" | "+ item.Points +" | " + item.ToString());
+                Debug.Print(item.Ranking +" | "+ item.Points +" | " + item.ToString());
             }
             return co;
         }
@@ -79,7 +79,7 @@ namespace TSystems.TournamentManager.Services
             }
             //ShowResults();
         }
-        
+
         private List<IFightMatch> GenerateMatches(List<ICompetitor> competitors, IStageCriteria criteria)
         {
             var matchbuilder = new FightMatchBuilder();
@@ -124,7 +124,7 @@ namespace TSystems.TournamentManager.Services
                 }
             }
         }
-        
+
         private void ShowMatchs(List<IFightMatch> matches)
         {
             var co  = matches

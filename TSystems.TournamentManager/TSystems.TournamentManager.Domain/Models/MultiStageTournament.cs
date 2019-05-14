@@ -15,7 +15,7 @@ namespace TSystems.TournamentManager.Domain
         public List<ICompetitor> Competitors { get; set; }
 
         public List<IFightMatch> Matches { get; set; }
-         
+
         public List<ICompetitor> Ranking { get; set; }
 
         public MultiStageTournamentSettings Settings { get; set;}

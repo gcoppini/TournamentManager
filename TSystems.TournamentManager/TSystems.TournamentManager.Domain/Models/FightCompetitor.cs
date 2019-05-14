@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Globalization;
 
-
 namespace TSystems.TournamentManager.Domain
 {
     public class FightCompetitor : ICompetitor,  IComparable<FightCompetitor>
@@ -12,7 +11,7 @@ namespace TSystems.TournamentManager.Domain
         public string Name { get; set; }
         public int Age { get; set; }
         public List<string> MartialArts { get; set; }
-       
+
         public int Wins { get; set; }
         public int Losses { get; set; }
         public int TotalFights { get; set; }
@@ -44,7 +43,7 @@ namespace TSystems.TournamentManager.Domain
             this.Losses++;
             this.TotalFights++;
         }
-        
+
         public int CompareTo(FightCompetitor other)
         {
             // Alphabetic sort if salary is equal. [A to Z]

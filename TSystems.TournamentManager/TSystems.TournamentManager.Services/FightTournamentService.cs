@@ -30,8 +30,8 @@ namespace TSystems.TournamentManager.Services
             //Neste query a seleção dos competitores valida também a multiplicidade 
             // Participantes distintos somente
             var competitors = (from r in comp
-                         where (from p in selected select p).Contains(r.Name)
-                         select r).ToList();
+                                    where (from p in selected select p).Contains(r.Name)
+                                    select r).ToList();
 
             if(competitors.Count != TOURMENAMENT_COMPETITOR_QTY)
                 throw new InvalidOperationException($"Necessário selecionar {TOURMENAMENT_COMPETITOR_QTY} participantes");

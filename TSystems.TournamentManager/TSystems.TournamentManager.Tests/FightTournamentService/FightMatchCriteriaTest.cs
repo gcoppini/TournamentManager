@@ -8,8 +8,6 @@ using TSystems.TournamentManager.Domain;
 using TSystems.TournamentManager.Services;
 using TSystems.TournamentManager.Data;
 using TSystems.TournamentManager.Data.Models;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 
 
 namespace TSystems.TournamentManager.Tests
@@ -21,7 +19,7 @@ namespace TSystems.TournamentManager.Tests
         {
         }
 
-         [TestInitialize]
+        [TestInitialize]
         public void Initialize() 
         {
         }

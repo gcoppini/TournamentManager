@@ -11,7 +11,6 @@ using TSystems.TournamentManager.Data.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-
 namespace TSystems.TournamentManager.Tests
 {
     [TestClass]
@@ -51,7 +50,7 @@ namespace TSystems.TournamentManager.Tests
             return selected;
         }
 
-         [TestInitialize]
+        [TestInitialize]
         public void Initialize() 
         {
              using (StreamReader r = new StreamReader(@"../../../Mock/data.json"))
@@ -96,7 +95,6 @@ namespace TSystems.TournamentManager.Tests
             //Assert.IsFalse(result, $"{value} should not be prime");
         }
 
-
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException), "A lista participantes deve conter elementos distintos")]
         public void SameCompetitorMultipleTimesNotAllowed()
@@ -109,7 +107,6 @@ namespace TSystems.TournamentManager.Tests
             }
             var result = _fightTournamentService.Run(selected);
         }
-
 
     }
 }
