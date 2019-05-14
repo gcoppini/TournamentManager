@@ -42,7 +42,7 @@ Padrões
 - Design Patterns: Strategy
 - Tratamento exceções
 - Tratamento de concurrência
-- Análise Thread-safe, Async, IDisposable, Logs
+- Análise Thread-safe, Async, IDisposable, Logs, Complexidade ciclomática
 
 Testes
 - Mocked Unit Tests, Testes de integração, carga, user interfaces
