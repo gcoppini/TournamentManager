@@ -1,4 +1,10 @@
 # .NET Core - Tournament Manager - Torneio de Luta
+[![Build status](https://ci.appveyor.com/api/projects/status/2y84mtiwgc0iowlk?svg=true)](https://ci.appveyor.com/project/gcoppini/tournamentmanager)
+
+
+
+[![Build status (master)](https://ci.appveyor.com/api/projects/status/2y84mtiwgc0iowlk/branch/master?svg=true)](https://ci.appveyor.com/project/gcoppini/tournamentmanager/branch/master)
+
 Arquitetura teste para avaliação
 
 
