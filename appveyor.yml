@@ -12,7 +12,7 @@ before_build:
   # Display .NET Core version
   - cmd: dotnet --version
   # Display minimal restore text
-  - cmd: dotnet restore --verbosity m
+  - cmd: dotnet restore ./TSystems.TournamentManager --verbosity m
 build_script:
   # output will be in /.src/GT86Registry.Web/bin/Debug/netcoreapp2.1/publish/
   - cmd: dotnet publish ./TSystems.TournamentManager/TSystems.TournamentManager.Web.UI/TSystems.TournamentManager.Web.UI.csproj
